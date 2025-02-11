@@ -6,15 +6,22 @@ import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kmp_image_censorship.composeapp.generated.resources.Res
+import kmp_image_censorship.composeapp.generated.resources.books
+import kmp_image_censorship.composeapp.generated.resources.bottle
 import kmp_image_censorship.composeapp.generated.resources.computer
+import kmp_image_censorship.composeapp.generated.resources.game_console
+import kmp_image_censorship.composeapp.generated.resources.plant
 import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.imageResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -23,14 +30,17 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun App() {
     MaterialTheme {
 
-        /*val images = listOf(
-            Res.drawable.computer,
-            Res.drawable.computer,
+        val images = listOf(
+            Res.drawable.books,
+            Res.drawable.plant,
+            Res.drawable.game_console,
+            Res.drawable.bottle,
 
-        )
-        ResponsiveGrid(images)*/
-        val painter = painterResource(Res.drawable.computer)
-        CensorshipComposable(painter)
+            )
+        ResponsiveGrid(images = images)
+
+        // val painter = painterResource(Res.drawable.books)
+        // CensorshipComposable(painter)
     }
 }
 
@@ -53,9 +63,9 @@ fun ResponsiveGrid(
                 // Use 'containerWidth' instead of 'maxWidth' here
                 val cellWidth = (containerWidth / columns) - 16.dp
 
-                Box(modifier = Modifier.width(cellWidth)) {
+                Box(modifier = Modifier.width(cellWidth).height(cellWidth)) {
                     val painter = painterResource(resId)
-                    CensorshipComposable(painter)
+                    CensorshipComposable(painter, modifier = modifier.align(Alignment.Center))
                 }
             }
         }
