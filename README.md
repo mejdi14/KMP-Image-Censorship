@@ -20,7 +20,7 @@
 <div style="display: flex; justify-content: center; align-items: center;">
   <img 
     src="https://raw.githubusercontent.com/mejdi14/KMP-Image-Censorship/main/demo/output.gif"
-    height="300"
+    height="400"
     width="675"
     style="margin-right: 20px;"
   />
