@@ -28,7 +28,7 @@ import org.example.project.helpers.toImageBitmap
 @Composable
 fun CensorshipComposable(
     painter: Painter,
-    blockSize: Int = 152,
+    pixelsSize: Int = 152,
     modifier: Modifier = Modifier
 ) {
     val density = LocalDensity.current
@@ -45,11 +45,11 @@ fun CensorshipComposable(
 
     LaunchedEffect(isPixelated) {
         if (isPixelated && pixelatedImage == null) {
-            pixelatedImage = computePixelatedImage(imageBitmap, blockSize)
+            pixelatedImage = computePixelatedImage(imageBitmap, pixelsSize)
         }
     }
 
-    Box(modifier = modifier.size(100.dp).clickable(
+    Box(modifier = modifier.size(200.dp).clickable(
         interactionSource = remember { MutableInteractionSource() },
         indication = null
     ) { isPixelated = !isPixelated }) {
