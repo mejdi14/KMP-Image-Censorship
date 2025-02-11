@@ -52,7 +52,11 @@ dependencies {
 ``` java
                val painter = painterResource(resId)
                val yourPixelSize = 100
-               CensorshipComposable(painter, modifier = modifier.align(Alignment.Center), pixelSize = yourPixelSize)
+               CensorshipComposable(
+                              painter,
+                              modifier = modifier.align(Alignment.Center),
+                              pixelSize = yourPixelSize
+                                   )
 ```
 
 
