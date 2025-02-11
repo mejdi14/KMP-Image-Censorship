@@ -40,16 +40,16 @@ jobs:
           MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
           SIGNING_KEY_ID: ${{ secrets.SIGNING_KEY_ID }}
           GROUP: io.github.mejdi14
-          POM_ARTIFACT_ID: KMP-Searchable-Dropdown
-          POM_NAME: KMP-Searchable-Dropdown
+          POM_ARTIFACT_ID: KMP-Image-Censorship
+          POM_NAME: KMP-Image-Censorship
           POM_DESCRIPTION: "This library provides ...."
-          POM_URL: https://github.com/mejdi14/KMP-Searchable-Dropdown
+          POM_URL: https://github.com/mejdi14/KMP-Image-Censorship
           POM_LICENSE_NAME: "The Apache Software License, Version 2.0"
           POM_LICENSE_URL: https://www.apache.org/licenses/LICENSE-2.0.txt
           POM_LICENSE_DIST: repo
-          POM_SCM_URL: https://github.com/mejdi14/KMP-Searchable-Dropdown
-          POM_SCM_CONNECTION: scm:git:git://github.com/mejdi14/KMP-Searchable-Dropdown.git
-          POM_SCM_DEV_CONNECTION: scm:git:ssh://git@github.com/mejdi14/KMP-Searchable-Dropdown.git
+          POM_SCM_URL: https://github.com/mejdi14/KMP-Image-Censorship
+          POM_SCM_CONNECTION: scm:git:git://github.com/mejdi14/KMP-Image-Censorship.git
+          POM_SCM_DEV_CONNECTION: scm:git:ssh://git@github.com/mejdi14/KMP-Image-Censorship.git
           POM_DEVELOPER_ID: mejdi14
           POM_DEVELOPER_NAME: "mejdi hafiene"
           POM_DEVELOPER_URL: https://github.com/mejdi14/

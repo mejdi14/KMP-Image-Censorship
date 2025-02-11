@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -19,12 +20,12 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import org.example.project.helpers.computePixelatedImage
 import org.example.project.helpers.toImageBitmap
 
-/**
- * Composable for displaying an image with pixelated effect.
- */
+
 @Composable
 fun CensorshipComposable(
     painter: Painter,
@@ -40,33 +41,41 @@ fun CensorshipComposable(
         painter.toImageBitmap(size, density, layoutDirection)
     }
 
-    var isPixelated by remember { mutableStateOf(false) }
-    var pixelatedImage by remember { mutableStateOf<ImageBitmap?>(null) }
-
-    LaunchedEffect(isPixelated) {
-        if (isPixelated && pixelatedImage == null) {
-            pixelatedImage = computePixelatedImage(imageBitmap, pixelsSize)
+    val pixelatedImage by produceState<ImageBitmap?>(initialValue = null, imageBitmap) {
+        value = withContext(Dispatchers.Default) {
+            computePixelatedImage(imageBitmap, pixelsSize)
         }
     }
 
-    Box(modifier = modifier.size(200.dp).clickable(
-        interactionSource = remember { MutableInteractionSource() },
-        indication = null
-    ) { isPixelated = !isPixelated }) {
+    var isPixelated by remember { mutableStateOf(false) }
+
+    Box(
+        modifier = modifier
+            .size(200.dp)
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null
+            ) {
+                isPixelated = !isPixelated
+            }
+    ) {
         if (isPixelated) {
-            pixelatedImage?.let {
+            if (pixelatedImage != null) {
                 Image(
-                    bitmap = it,
+                    bitmap = pixelatedImage!!,
                     contentDescription = "Pixelated image",
-                    modifier.align(Alignment.Center)
+                    modifier = Modifier.align(Alignment.Center)
                 )
-            } ?: CircularProgressIndicator()
+            } else {
+                CircularProgressIndicator(Modifier.align(Alignment.Center))
+            }
         } else {
             Image(
                 bitmap = imageBitmap,
                 contentDescription = "Original image",
-                modifier.align(Alignment.Center)
+                modifier = Modifier.align(Alignment.Center)
             )
         }
     }
 }
+
