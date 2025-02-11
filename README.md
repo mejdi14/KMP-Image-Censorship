@@ -50,66 +50,9 @@ dependencies {
 ## :fire:How to use
 
 ``` java
-                            var controller: AnimationController? by remember { mutableStateOf(null) }
-                            VanishComposable(
-                                Modifier,
-                                VanishOptions = VanishOptions(),
-                                effect = AnimationEffect.SHATTER,
-                                onControllerReady = {
-                                    controller = it
-                                }
-                            ) {
-                                // Your Composable
-                                ContentComposable()
-                            }
-```
-
-Animation Listener
------
-
-``` java
-// Start animation
-controller?.triggerVanish() {
-                        // Do something when animation finishes
-                    }
-                    
-// Reverse animation                    
-controller?.reset()
-```
-
-Animation types
------
-
-``` java
-    PIXELATE,
-    SWIRL,
-    SCATTER,
-    SHATTER,
-    WAVE,
-    LEFT_TO_RIGHT,
-    RIGHT_TO_LEFT,
-    UP,
-    DOWN,
-    DISSOLVE,
-    EXPLODE
-```
-
-Hold animation duration after separation
------
-
-``` java
- .timeBetweenAnimations
-```
-
-Configuration options
------
-
-``` java
-  pixelSize: size of each pixel or dot 
-  pixelSpacing: space between pixels when they are separated
-  pixelVelocity: velocity of the pixels
-  animationDuration: duration of the animation from start to finish
-  triggerFinishAt: use this if you want to trigger the end of animation a bit earlier (1f: wait to end, 0f: don't wait)
+               val painter = painterResource(resId)
+               val yourPixelSize = 100
+               CensorshipComposable(painter, modifier = modifier.align(Alignment.Center), pixelSize = yourPixelSize)
 ```
 
 
