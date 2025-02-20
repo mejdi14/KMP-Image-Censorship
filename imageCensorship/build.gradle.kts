@@ -119,3 +119,36 @@ if ((project.findProperty("RELEASE_SIGNING_ENABLED")?.toString() ?: "true").toBo
         sign(publishing.publications)
     }
 }
+
+mavenPublishing {
+    coordinates(
+        artifactId = "kmp-image-censorship",
+    )
+
+    pom {
+        name.set("KMP-Image-Censorship")
+        description.set("KMP-Image-Censorship.")
+        url.set("https://github.com/mejdi14/KMP-Image-Censorship")
+
+        licenses {
+            license {
+                name.set("Apache-2.0")
+                url.set("https://www.apache.org/licenses/LICENSE-2.0.txt")
+                distribution.set("repo")
+            }
+        }
+        scm {
+            url.set("https://github.com/mejdi14/KMP-Image-Censorship")
+            connection.set("scm:git:git://github.com/mejdi14/KMP-Image-Censorship.git")
+            developerConnection.set("scm:git:ssh://git@github.com/mejdi14/KMP-Image-Censorship.git")
+        }
+        developers {
+            developer {
+                id.set("mejdi14")
+                name.set("mejdi hafiene")
+                url.set("https://github.com/mejdi14/")
+                email.set("mejdihafiane@gmail.com")
+            }
+        }
+    }
+}
