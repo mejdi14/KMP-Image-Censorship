@@ -1,21 +1,82 @@
-This is a Kotlin Multiplatform project targeting Android, iOS, Web, Desktop.
+<h1 align="center">Welcome to Vanish Composable Library 👋</h1>
 
-* `/composeApp` is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - `commonMain` is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    `iosMain` would be the right folder for such calls.
+<p align="center">
+  <a href="https://github.com/frinyvonnick/gitmoji-changelog">
+    <img src="https://img.shields.io/badge/API-15%2B-blue.svg?style=flat" alt="gitmoji-changelog">
+  </a>  <a href="https://github.com/frinyvonnick/gitmoji-changelog">
+    <img src="https://jitpack.io/v/mejdi14/AndroidColorPicker.svg" alt="gitmoji-changelog">
+  </a>
+  </a>
+	<a href="https://github.com/kefranabg/readme-md-generator/blob/master/LICENSE">
+    <img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-yellow.svg" target="_blank" />
+  </a>
+  <a href="https://codecov.io/gh/kefranabg/readme-md-generator">
+    <img src="https://codecov.io/gh/kefranabg/readme-md-generator/branch/master/graph/badge.svg" />
+  </a>
+</p>
 
-* `/iosApp` contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform, 
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+## ✨ Demo
+
+<div style="display: flex; justify-content: center; align-items: center;">
+  <img 
+    src="https://raw.githubusercontent.com/mejdi14/KMP-Image-Censorship/main/demo/output.gif"
+    height="400"
+    width="675"
+    style="margin-right: 20px;"
+  />
+
+</div>
 
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html),
-[Compose Multiplatform](https://github.com/JetBrains/compose-multiplatform/#compose-multiplatform),
-[Kotlin/Wasm](https://kotl.in/wasm/)…
 
-We would appreciate your feedback on Compose/Web and Kotlin/Wasm in the public Slack channel [#compose-web](https://slack-chats.kotlinlang.org/c/compose-web).
-If you face any issues, please report them on [GitHub](https://github.com/JetBrains/compose-multiplatform/issues).
 
-You can open the web application by running the `:composeApp:wasmJsBrowserDevelopmentRun` Gradle task.
+## :art:Design inspiration
+
+many thanks goes to [Jade Franson](https://x.com/jadefranson) for the beautiful design and
+animation
+
+## Installation
+
+Add this to your module's `build.gradle` file (make sure the version matches the JitPack badge
+above):
+
+```gradle
+dependencies {
+	...
+	implementation("io.github.mejdi14:kmp_image_censorship:0.1.0")
+}
+```
+
+## :fire:How to use
+
+``` java
+               val painter = painterResource(resId)
+               val yourPixelSize = 100
+               CensorshipComposable(
+                              painter,
+                              modifier = modifier.align(Alignment.Center),
+                              pixelSize = yourPixelSize
+                                   )
+```
+
+
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome.<br />
+Feel free to check [issues page] if you want to contribute.<br />
+
+## Author
+
+👤 **Mejdi Hafiane**
+
+- profile: [@MejdiHafiane](https://twitter.com/mejdi141)
+
+## Show your support
+
+Please ⭐️ this repository if this project helped you!
+
+## 📝 License
+
+Copyright © 2019 [Mejdi Hafiane](https://github.com/mejdi14).<br />
+This project is [MIT](https://github.com/mejdi14/readme-md-generator/blob/master/LICENSE) licensed.
