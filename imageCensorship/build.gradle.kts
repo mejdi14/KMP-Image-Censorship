@@ -113,7 +113,7 @@ compose.desktop {
     }
 }
 
-if ((project.findProperty("RELEASE_SIGNING_ENABLED")?.toString() ?: "false").toBoolean()) {
+if ((project.findProperty("RELEASE_SIGNING_ENABLED")?.toString() ?: "true").toBoolean()) {
     signing {
         useGpgCmd()
         sign(publishing.publications)
